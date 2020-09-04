@@ -1,6 +1,6 @@
 import pandas
 import random
-dados=pandas.read_csv("dados_2D_parabola.csv")
+dados=pandas.read_csv("dados_2D_reta.csv") 
 w1=random.random()
 w2=random.random()#pesos sinapticos aleatorios
 erro=1 #erro é iniciado como 1 para entrar no loop
@@ -20,14 +20,14 @@ while(erro!=0):
               
         pass
 print(w1,w2)
-for i in range(200):
+for i in range(200): #a partir daqui os pesos são testados 
     u=((dados.loc[i,"x"]*w1)+(dados.loc[i,"y"]*w2))-1
     if(u>0):
         u=1
     else:
         u=-1
     if(u!=dados.loc[i,"classificacao"]):
-        erro=erro+1
+        erro=erro+1 #quantidade de erros depois do perceptron 
 print(erro)
 
 
